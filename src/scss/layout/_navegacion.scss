@@ -1,0 +1,106 @@
+.derecha {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include tablet {
+    align-items: flex-end;
+  }
+
+  .dark-mode-boton {
+    width: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    filter: invert(100);
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+    }
+
+    @include tablet {
+      margin-top: 0;
+    }
+  }
+}
+
+/* Estilos para la barra de navegavión */
+.barra {
+  display: flex;
+  flex-direction: column;
+  padding-top: 3rem;
+  align-items: center;
+
+  /* En tamaño tablet o mayor */
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+/* Estilos para la navegación */
+.navegacion {
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  transition: visibilty 0.3s ease-in-out, opacity 0.5s linear, height 1s linear; 
+
+  /* En tamaño tablet o mayor */
+  @include tablet {
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Estilos para los <a> de la navegación */
+  a {
+    color: $blanco;
+    text-decoration: none;
+    font-size: 2.2rem;
+    display: block;
+    text-align: center;
+
+    &:hover,
+    &:focus {
+      color: $negro;
+      background-color: $amarillo;
+      transition: ease 0.2s all;
+    }
+
+    /* En tamaño tablet o mayor */
+    @include tablet {
+      margin-right: 2rem;
+      font-size: 1.8rem;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+/* Manú de Hamburguesa */
+.mobile-menu {
+  @include tablet {
+    display: none;
+  }
+
+  img {
+    width: 5rem;
+  }
+}
+
+.mostrar {
+  /*  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    flex-direction: row;
+  } */
+
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+}
