@@ -28,7 +28,7 @@ class Router
             // Si la URL existe
             call_user_func($fn, $this);
         } else {
-            echo "404";
+            echo "Página no encontrada";
         }
     }
 }
