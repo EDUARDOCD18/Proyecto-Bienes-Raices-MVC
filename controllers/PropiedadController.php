@@ -22,9 +22,16 @@ class PropiedadController
             'vendedores' => $vendedores
         ]);
     }
-    public static function crear()
+    public static function crear(Router $router)
     {
-        echo "Crear propiedad";
+
+        $propiedad = new Propiedad;
+        $vendedores = Vendedor::all();
+
+        $router->render('propiedades/crear', [
+            'propiedad' => $propiedad,
+            'vendedores' => $vendedores
+        ]);
     }
     public static function actualizar()
     {

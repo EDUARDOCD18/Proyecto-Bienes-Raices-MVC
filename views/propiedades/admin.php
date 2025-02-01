@@ -12,8 +12,8 @@
 
 
     <div class="acciones">
-        <a href="../admin/propiedades/crear.php" class="boton boton-verde">Nueva Propiedad →</a>
-        <a href="../admin/vendedores/crear.php" class="boton boton-verde">Nuevo(a) Vendedor(a) →</a>
+        <a href="/propiedades/crear" class="boton boton-verde">Nueva Propiedad →</a>
+        <a href="/vendedores/crear.php" class="boton boton-verde">Nuevo(a) Vendedor(a) →</a>
     </div>
 
     <h2>Propiedades</h2>
