@@ -13,6 +13,10 @@ class Router
     {
         $this->rutasGET[$url] = $fn;
     }
+    public function post($url, $fn)
+    {
+        $this->rutasPOST[$url] = $fn;
+    }
 
     public function comprobarRutas()
     {
@@ -21,8 +25,9 @@ class Router
 
         if ($metedo === 'GET') {
             $fn = $this->rutasGET[$urlActual] ?? null;
+        } else {
+            $fn = $this->rutasPOST[$urlActual] ?? null;
         }
-
 
         if ($fn) {
             // Si la URL existe
@@ -40,7 +45,7 @@ class Router
         foreach ($datos as $key => $value) {
             $$key = $value;
         }
-        
+
         ob_start();
         include __DIR__ . "/views/$view.php";
 
