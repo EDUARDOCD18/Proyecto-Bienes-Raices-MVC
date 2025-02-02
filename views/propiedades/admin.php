@@ -41,39 +41,7 @@
                             <input type="hidden" name="tipo" value="propiedad">
                             <input type="submit" value="Eliminar" class="boton-rojo-block">
                         </form>
-                        <a href="../admin/propiedades/actualizarPropiedad.php?=<?php echo $propiedad->id; ?>" class="boton-amarillo-block">Actualizar</a>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-
-    <h2>Vendedores</h2>
-
-    <table class="propiedades">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Número</th>
-                <th>Acciones</th>
-            </tr>
-        </thead> <!-- Mostrar los resultados de la consulta -->
-        <tbody>
-            <?php foreach ($vendedores as $vendedor): ?>
-                <tr>
-                    <td><?php echo $vendedor->id; ?></td>
-                    <td><?php echo $vendedor->nombre; ?></td>
-                    <td><?php echo $vendedor->apellido; ?></td>
-                    <td><?php echo $vendedor->telefono; ?></td>
-                    <td class="botones-accion">
-                        <form method="POST" class="w-100">
-                            <input type="hidden" name="id" value="<?php echo $vendedor->id; ?>">
-                            <input type="hidden" name="tipo" value="vendedor">
-                            <input type="submit" value="Eliminar" class="boton-rojo-block">
-                        </form>
-                        <a href="../admin/vendedores/actualizar.php?id=<?php echo $vendedor->id; ?>" class="boton-amarillo-block">Actualizar</a>
+                        <a href="/propiedades/actualizar?id=<?php echo $propiedad->id; ?>" class="boton-amarillo-block">Actualizar</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

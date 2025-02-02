@@ -64,3 +64,17 @@ function mostrarNotificaciones($codigo)
     }
     return $mensaje;
 }
+
+function validarORedireccionar(string $url)
+{
+    /* -- Validar que el id sea correcto -- */
+    $id = $_GET['id']; // Se optiene el id
+    $id = filter_var($id, FILTER_VALIDATE_INT); // Se valida que sea entero
+
+    // En caso de que el id no sea entero o no se encuentre
+    if (!$id) {
+        header("Location: $url"); // Redirecciona al usuario
+    }
+
+    return $id;
+}
