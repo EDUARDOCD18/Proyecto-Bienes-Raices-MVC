@@ -11,7 +11,7 @@ use Intervention\Image\Drivers\Gd\Driver;
 
 class PropiedadController
 {
-
+    /* INDEX */
     public static function index(Router $router)
     {
 
@@ -26,6 +26,8 @@ class PropiedadController
             'vendedores' => $vendedores
         ]);
     }
+
+    /* CREAR UN REGISTRO */
     public static function crear(Router $router)
     {
 
@@ -68,13 +70,14 @@ class PropiedadController
             }
         }
 
-
         $router->render('propiedades/crear', [
             'propiedad' => $propiedad,
             'vendedores' => $vendedores,
             'errores' => $errores
         ]);
     }
+
+    /* ACTUALIZAR UN REGISTRO */
     public static function actualizar(Router $router)
     {
         $id = validarORedireccionar('/admin');
@@ -119,5 +122,26 @@ class PropiedadController
             'errores' => $errores,
             'vendedores' => $vendedores
         ]);
+    }
+
+    /* ELIMINAR UN REGISTRO */
+    public static function eliminar()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            // Validar ID
+            $id = $_POST['id']; // Obtener el id y guardarlo
+            $id = filter_var($id, FILTER_VALIDATE_INT); // Validar que el id es entero
+
+            // En caso de que el id exista
+            if ($id) {
+                $tipo = $_POST['tipo'];
+
+                if (validarTipoContenido($tipo)) {
+                    $propiedad = Propiedad::find($id);
+                    $propiedad->eliminar();
+                }
+            }
+        }
     }
 }
