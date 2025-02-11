@@ -83,6 +83,37 @@ class PropiedadController
         $vendedores = Vendedor::all();
         $errores = Propiedad::getErrores();
 
+        // Métido POST para actualizar
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            // Asignar los atributos
+            $args = $_POST['propiedad'];
+
+            $propiedad->sinc($args);
+
+            // Validación
+            $errores = $propiedad->validar();
+
+            // Generar un nombre único para cada imagen
+            $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
+
+            // Subida de archivos
+            if ($_FILES['propiedad']['tmp_name']['imagen']) {
+                $manager = new Image(Driver::class);
+                $imagenSubir = $manager->read($_FILES['propiedad']['tmp_name']['imagen'])->cover(800, 600);
+                $propiedad->setImage($nombreImagen);
+            }
+
+            // Revisar que el arrglo de errores esté vacío
+            if (empty($errores)) {
+                if ($_FILES['propiedad']['tmp_name']['imagen']) {
+                    // Guardar la imagen
+                    $imagenSubir->save(CARPETA_IMAGENES . $nombreImagen);
+                }
+                $propiedad->guardar();
+            }
+        }
+
         $router->render('/propiedades/actualizar', [
             'propiedad' => $propiedad,
             'errores' => $errores,
