@@ -31,6 +31,7 @@ class VendedorController
             'vendedor' => $vendedor
         ]);
     }
+
     /* ACTUALIZAR UN REGISTRO */
     public static function actualizar(Router $router)
     {
@@ -60,9 +61,26 @@ class VendedorController
             'vendedor' => $vendedor
         ]);
     }
+
     /* ELIMINAR UN REGISTRO */
     public static function eliminar()
     {
-        echo "BORRAR";
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            // Valida el ID
+            $id = $_POST['id'];
+            $id = filter_var($id, FILTER_VALIDATE_INT);
+
+            if ($id) {
+
+                // Valida el tipo a eliminar
+                $tipo = $_POST['tipo'];
+
+                if (validarTipoContenido($tipo)) {
+                    $vendedor = Vendedor::find($id);
+                    $vendedor->eliminar();
+                }
+            }
+        }
     }
 }
