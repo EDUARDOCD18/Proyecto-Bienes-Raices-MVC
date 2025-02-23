@@ -26,21 +26,21 @@ if (!isset($inicio)) {
     <header class="header <?php echo $inicio ? 'inicio' : ''; ?>">
         <div class="contenedor contenido-header">
             <div class="barra">
-                <a href="/bienesraices/index.php"><img src="../build/img/logo.svg" alt="Logo" /></a>
+                <a href="/index"><img src="/build/img/logo.svg" alt="Logo" /></a>
 
                 <div class="mobile-menu">
-                    <img src="../build/img/barras.svg" alt="icono menu responsive" />
+                    <img src="/build/img/barras.svg" alt="icono menu responsive" />
                 </div>
 
                 <div class="derecha">
-                    <img class="dark-mode-boton" src="../build/img/dark-mode.svg" alt="Activar Modo Oscuro" />
+                    <img class="dark-mode-boton" src="/build/img/dark-mode.svg" alt="Activar Modo Oscuro" />
                     <div class="navegacion">
-                        <a href="/bienesraices/nosotros.php">Nosotros</a>
-                        <a href="/bienesraices/anuncios.php">Anuncios</a>
-                        <a href="/bienesraices/blog.php">Blog</a>
-                        <a href="/bienesraices/contacto.php">Contacto</a>
+                        <a href="/nosotros">Nosotros</a>
+                        <a href="/propiedades">Anuncios</a>
+                        <a href="/blog">Blog</a>
+                        <a href="/contacto">Contacto</a>
                         <?php if ($auth) : ?>
-                            <a href="/bienesraices/cerrar-sesion.php">Cerrar Sesión</a>
+                            <a href="/cerrar-sesion.">Cerrar Sesión</a>
                         <?php else : ?>
                             <a href="login.php">Iniciar Sesión</a>
                         <?php endif; ?>
@@ -61,10 +61,10 @@ if (!isset($inicio)) {
     <footer class="footer seccion">
         <div class="contenedor contenedor-footer">
             <div class="navegacion">
-                <a href="/bienesraices/nosotros.php">Nosotros</a>
-                <a href="/bienesraices/anuncios.php">Anuncios</a>
-                <a href="/bienesraices/blog.php">Blog</a>
-                <a href="/bienesraices/contacto.php">Contacto</a>
+                <a href="/nosotros">Nosotros</a>
+                <a href="/anuncios">Anuncios</a>
+                <a href="/blog">Blog</a>
+                <a href="/contacto">Contacto</a>
             </div>
             <!-- .navegacion -->
         </div>
@@ -73,7 +73,7 @@ if (!isset($inicio)) {
     </footer>
     <!-- .footer -->
 
-    <script src="../build/js/bundle.min.js"></script>
+    <script src="/build/js/bundle.min.js"></script>
 </body>
 
 </html>

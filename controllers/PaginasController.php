@@ -1,13 +1,21 @@
 <?php
 
 namespace Controllers;
+use MVC\Router;
+use Model\Propiedad;
 
 class PaginasController
 {
 
-    public static function index()
+    public static function index(Router $router)
     {
-        echo "Index";
+        $propiedades = Propiedad::get(3);
+        $inicio = true;
+
+        $router->render('pages/index',[
+            'propiedades' => $propiedades,
+            'inicio' => $inicio
+        ]);
     }
 
     public static function nosotros()
@@ -39,5 +47,5 @@ class PaginasController
     {
         echo "contacto";
     }
-    
+
 }
