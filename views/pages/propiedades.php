@@ -8,7 +8,7 @@
         ?>
 
         <div class="alinear-derecha">
-            <a href="" class="boton-verde">Ver todas</a>
+            <a href="/propiedades" class="boton-verde">Ver todas</a>
         </div>
     </div>
     <!-- .seccion -->
