@@ -1,6 +1,7 @@
 <?php
 
 namespace Controllers;
+
 use MVC\Router;
 use Model\Propiedad;
 
@@ -12,15 +13,15 @@ class PaginasController
         $propiedades = Propiedad::get(3);
         $inicio = true;
 
-        $router->render('pages/index',[
+        $router->render('pages/index', [
             'propiedades' => $propiedades,
             'inicio' => $inicio
         ]);
     }
 
-    public static function nosotros()
+    public static function nosotros(Router $router)
     {
-        echo "nosotros";
+        $router->render('pages/nosotros', []);
     }
 
     public static function propiedades()
@@ -47,5 +48,4 @@ class PaginasController
     {
         echo "contacto";
     }
-
 }

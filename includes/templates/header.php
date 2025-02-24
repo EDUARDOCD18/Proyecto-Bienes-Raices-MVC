@@ -20,7 +20,7 @@ $auth = $_SESSION['login'] ?? null;
     <header class="header <?php echo $inicio ? 'inicio' : ''; ?>">
         <div class="contenedor contenido-header">
             <div class="barra">
-                <a href="/index"><img src="/build/img/logo.svg" alt="Logo" /></a>
+                <a href="/"><img src="/build/img/logo.svg" alt="Logo" /></a>
 
                 <div class="mobile-menu">
                     <img src="/build/img/barras.svg" alt="icono menu responsive" />
