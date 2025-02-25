@@ -46,7 +46,7 @@
             <!-- .imagen -->
 
             <div class="texto-entrada">
-                <a href="entraphp">
+                <a href="/entrada">
                     <h4>Terraza en el techo de tu casa</h4>
                     <p class="informacion-meta">
                         Escrito el <span>18/06/1999</span> por : <span>Admin</span>
@@ -69,7 +69,7 @@
             <!-- .imagen -->
 
             <div class="texto-entrada">
-                <a href="entrada.php">
+                <a href="/entrada">
                     <h4>Guía para la decoración de tu hogar</h4>
                     <p class="informacion-meta">
                         Escrito el <span>18/06/2024</span> por : <span>Javi</span>
