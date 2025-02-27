@@ -38,8 +38,8 @@ function eventListeners() {
     'input[name="contacto[contacto]"]'
   );
 
-  metodoContacto.forEach(input =>
-    input.addEventListener('click', mostarMetodosContacto)
+  metodoContacto.forEach((input) =>
+    input.addEventListener("click", mostarMetodosContacto)
   );
 }
 
@@ -56,6 +56,25 @@ function navegacionResponsive() {
 
 /* Función para seleccionar el método de contacto */
 
-function mostarMetodosContacto() {
-  console.log("Seleccionando...");
+function mostarMetodosContacto(e) {
+  const contactoDiv = document.querySelector("#contacto");
+
+  if (e.target.value === "telefono") {
+    contactoDiv.innerHTML = `
+        <label class="requerido" for="telefono">Número de teléfono:</label>
+        <input type="tel" placeholder="12345678900" id="telefono" name="contacto[telefono]" required/>
+    
+        <p>Eliga fecha y hora para ser contactado para la llamada</p>
+
+        <label class="requerido" for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="contacto[fecha]"/>
+
+        <label for="hora">hora:</label>
+        <input type="time" id="hora" min="09:00" max="18:00" name="contacto[hora]" />
+        `;
+  } else {
+    contactoDiv.innerHTML = `
+        <label class="requerido" for="email">E-mail:</label>
+        <input type="email" placeholder="correo@correo.com" id="email" name="contacto[email]" required/>`;
+  }
 }

@@ -15,13 +15,7 @@
 
             <label class="requerido" for="nombre">Nombre y Apellido:</label>
             <input type="text" placeholder="Juana Pérez" id="nombre" name="contacto[nombre]" required/>
-
-            <label class="requerido" for="email">E-mail:</label>
-            <input type="email" placeholder="correo@correo.com" id="email" name="contacto[email]" required/>
-
-            <label class="requerido" for="telefono">Teléfono:</label>
-            <input type="tel" placeholder="12345678900" id="telefono" name="contacto[telefono]" required/>
-
+            
             <label for="mensaje">Mensaje:</label>
             <textarea id="mensaje" placeholder="Mensaje aquí" name="contacto[mensaje]" required></textarea>
         </fieldset>
@@ -48,21 +42,14 @@
             <p>Como desea ser contactado:</p>
             <div class="forma-contacto requerido">
                 <label for="contactar-telefono">Teléfono</label>
-                <input type="radio" value="teléfono" id="contactar-telefono" name="contacto[contacto]" required/>
+                <input type="radio" value="telefono" id="contactar-telefono" name="contacto[contacto]" required/>
 
                 <label for="contactar-email">E-mail</label>
                 <input type="radio" value="email" id="contactar-email" name="contacto[contacto]" required/>
             </div>
 
-            <p>
-                Eliga fecha y hora para ser contactado (solo si escogió teléfono)
-            </p>
+            <div id="contacto"></div>
 
-            <label class="requerido" for="fecha">Fecha:</label>
-            <input type="date" id="fecha" name="contacto[fecha]"/>
-
-            <label for="hora">hora:</label>
-            <input type="time" id="hora" min="09:00" max="18:00" name="contacto[hora]" />
         </fieldset>
 
         <input type="submit" value="Enviar" class="boton-verde" />
