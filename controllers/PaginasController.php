@@ -60,6 +60,8 @@ class PaginasController
         /* MANDAR EMAIL */
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+            $respuestas = $_POST['contacto'];
+
             // Crear instancia de phpmailer
             $phpmailer = new PHPMailer();
 
@@ -82,7 +84,16 @@ class PaginasController
             $phpmailer->CharSet = 'UTF-8';
 
             // Definir contenido
-            $contenido = '<html> <p>Tienes un nuevo mensaje</p> </html>';
+            $contenido = '<html>';
+            $contenido .= '<p>Tienes un mensaje</p>';
+            $contenido .= '<p>Nombre: ' .  $respuestas['nombre'] . '</p>';
+            $contenido .= '<p>Email: ' .  $respuestas['email'] . '</p>';
+            $contenido .= '<p>Teléfono: ' .  $respuestas['telefono'] . '</p>';
+            $contenido .= '<p>Tipo de negocio: ' .  $respuestas['tipo'] . '</p>';
+            $contenido .= '<p>Precio o presupuesto: $' .  $respuestas['precio'] . '</p>';
+            $contenido .= '<p>Método de contacto: ' .  $respuestas['contacto'] . '</p>';
+            $contenido .= '<p>Mensaje: ' .  $respuestas['mensaje'] . '</p>';
+            $contenido .= '</html>';
 
             $phpmailer->Body = $contenido;
             $phpmailer->AltBody = 'Sin HTML';

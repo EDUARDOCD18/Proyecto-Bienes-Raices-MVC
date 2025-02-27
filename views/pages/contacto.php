@@ -48,7 +48,7 @@
             <p>Como desea ser contactado:</p>
             <div class="forma-contacto requerido">
                 <label for="contactar-telefono">Teléfono</label>
-                <input type="radio" value="telefono" id="contactar-telefono" name="contacto[contacto]" required/>
+                <input type="radio" value="teléfono" id="contactar-telefono" name="contacto[contacto]" required/>
 
                 <label for="contactar-email">E-mail</label>
                 <input type="radio" value="email" id="contactar-email" name="contacto[contacto]" required/>
