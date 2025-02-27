@@ -32,6 +32,15 @@ function eventListeners() {
   const mobileMenu = document.querySelector(".mobile-menu");
 
   mobileMenu.addEventListener("click", navegacionResponsive);
+
+  // Mostar campos condicionales
+  const metodoContacto = document.querySelectorAll(
+    'input[name="contacto[contacto]"]'
+  );
+
+  metodoContacto.forEach(input =>
+    input.addEventListener('click', mostarMetodosContacto)
+  );
 }
 
 /* Función para la navegación responsiva */
@@ -43,4 +52,10 @@ function navegacionResponsive() {
   } else {
     navegacion.classList.add("mostrar");
   }
+}
+
+/* Función para seleccionar el método de contacto */
+
+function mostarMetodosContacto() {
+  console.log("Seleccionando...");
 }
