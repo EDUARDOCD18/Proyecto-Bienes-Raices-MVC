@@ -57,6 +57,8 @@ class PaginasController
 
     public static function contacto(Router $router)
     {
+        $mensaje = null;
+
         /* MANDAR EMAIL */
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -87,8 +89,20 @@ class PaginasController
             $contenido = '<html>';
             $contenido .= '<p>Tienes un mensaje</p>';
             $contenido .= '<p>Nombre: ' .  $respuestas['nombre'] . '</p>';
-            $contenido .= '<p>Email: ' .  $respuestas['email'] . '</p>';
-            $contenido .= '<p>Teléfono: ' .  $respuestas['telefono'] . '</p>';
+
+            // Enviar de manera condicional algunos campos como email o telefono
+            if ($respuestas['contacto'] === 'telefono') {
+                // Es telefono
+                $contenido .= '<p>Eligió ser contactado por teléfono: </p>';
+                $contenido .= '<p>Teléfono: ' .  $respuestas['telefono'] . '</p>';
+                $contenido .= '<p>Fecha para contactar: ' .  $respuestas['fecha'] . '</p>';
+                $contenido .= '<p>Hora para contactar: ' .  $respuestas['hora'] . '</p>';
+            } else {
+                // Es email
+                $contenido .= '<p>Eligió ser contactado por emial: </p>';
+                $contenido .= '<p>Email: ' .  $respuestas['email'] . '</p>';
+            }
+
             $contenido .= '<p>Tipo de negocio: ' .  $respuestas['tipo'] . '</p>';
             $contenido .= '<p>Precio o presupuesto: $' .  $respuestas['precio'] . '</p>';
             $contenido .= '<p>Método de contacto: ' .  $respuestas['contacto'] . '</p>';
@@ -100,12 +114,14 @@ class PaginasController
 
             // Enviar el email
             if ($phpmailer->send()) {
-                echo "Mensaje enviado correctamente.";
+                $mensaje = "Mensaje enviado correctamente.";
             } else {
-                echo "Error al enviar el mensaje.";
+                $mensaje = "Error al enviar el mensaje.";
             }
         }
 
-        $router->render('pages/contacto', []);
+        $router->render('pages/contacto', [
+            'mensaje' => $mensaje
+        ]);
     }
 }
