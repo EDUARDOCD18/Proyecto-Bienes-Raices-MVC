@@ -16,12 +16,18 @@ class LoginController
             $auth = new Admin($_POST);
             $errores = $auth->validar();
 
-            if(empty($errores)){
+            if (empty($errores)) {
                 // Verificar si el usuario existe
+                $resultado = $auth->existeUsuario();
 
-                // Verificar el password
+                if (!$resultado) {
+                    $errores = Admin::getErrores();
+                } else {
+                    // Verificar el password
 
-                // Autenticar al usuario
+                    // Autenticar al usuario
+
+                }
             }
         }
 
