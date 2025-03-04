@@ -57,9 +57,20 @@ class Admin extends ActiveRecord
 
         if (!$autenticado) {
             self::$errores[] = "Contraseña incorrecta";
-            
         }
 
         return $autenticado;
+    }
+
+    // Autenticar al usuario
+    public function autenticar()
+    {
+        session_start();
+
+        // Llenar el arreglo de sesión
+        $_SESSION['usuario'] = $this->email;
+        $_SESSION['login'] = true;
+
+        header('Location: /admin');
     }
 }
