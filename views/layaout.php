@@ -42,7 +42,7 @@ if (!isset($inicio)) {
                         <?php if ($auth) : ?>
                             <a href="/cerrar-sesion.">Cerrar Sesión</a>
                         <?php else : ?>
-                            <a href="login.php">Iniciar Sesión</a>
+                            <a href="/login">Iniciar Sesión</a>
                         <?php endif; ?>
                     </div>
                 </div>
